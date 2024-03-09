@@ -2,7 +2,7 @@
 #   prints out a packing list for that vacation type
 
 ###############################################################################
-# TODO: 1. (5 pts)
+# DONE: 1. (5 pts)
 #
 #   For this module, we are going to create a vacation planner that will help
 #   the user plan what they need to bring on vacation.
@@ -28,9 +28,19 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-
+def starter_list(type):
+    match type:
+        case "mountain":
+            return ["jeans", "hiking boots", "sunscreen", "water", "bear repellant"]
+        case "beach":
+            return ["sandals", "sun lotion", "swimsuit", "towel", "sunglasses"]
+        case "Las Vegas":
+            return ["money", "credit card", "dress"]
+        case _:
+            return []
+    
 ###############################################################################
-# TODO: 2. (4 pts)
+# DONE: 2. (4 pts)
 #
 #   Now, perhaps the user would like to bring some of their own stuff that they
 #   specify.
@@ -48,9 +58,17 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def gather_items():
+    items = []
+    while True:
+        item = input("Please enter an item: ")
+        if item == "end":
+            break
+        items.append(item)
+    return items
 
 ###############################################################################
-# TODO: 3. (6 pts)
+# DONE: 3. (6 pts)
 #
 #   For this _TODO_, write a function called main() that will start things off.
 #
@@ -76,3 +94,15 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def main():
+    print("Hello and welcome!")
+    vacation = starter_list(input("What type of vacation do you want? "))
+    for x in vacation:
+        print(x)
+    personal_items = gather_items()
+    final_list = vacation + personal_items
+    for x in final_list:
+        print(x)
+    print("Goodbye! Have a nice day!")
+
+main()

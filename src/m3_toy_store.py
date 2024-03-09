@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (3 pts)
+# DONE: 1. (3 pts)
 #
 #   In this module, we are going to create part of a program that could be used
 #   by a toy store to keep track of prices of various toys.
@@ -13,9 +13,12 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def get_toy():
+    toy = input("Please enter a toy: ")
+    return str(toy)
 
 ###############################################################################
-# TODO: 2. (3 pts)
+# DONE: 2. (3 pts)
 #
 #   For this _TODO_, write a function called get_price() that simply prompts
 #   the user for a price like this:
@@ -26,10 +29,13 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def get_price():
+    price = input("Please enter a price: ")
+    return float(price)
 
 ###############################################################################
-# TODO: 3. (5 pts)
-##
+# DONE: 3. (5 pts)
+#
 #   For this _TODO_, let's first create function called toy_price() that takes
 #   2 parameters:
 #       - toy       <-- str
@@ -43,16 +49,19 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def toy_price(toy = get_toy(), price = get_price()):
+    tp = (toy, price)
+    return tp
 
 ###############################################################################
-# TODO: 4. (5 pts)
+# DONE: 4. (5 pts)
 #
 #   For this _TODO_, write a function called calculate_total_price() that takes
 #   1 parameter:
 #       toys    <-- list of tuples that contain toy (str) and price (float)
 #
 #   This function should take a list of tuples (like what you created in the
-#   funciton above) and calculate the total cost of all the toys.
+#   function above) and calculate the total cost of all the toys.
 #
 #   You will need to loop through each item, get the price for each one, and
 #   total them as you go. Make sure you use the accumulator pattern here.
@@ -61,6 +70,11 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def calculate_total_price(toys = toy_price()):
+    cost = 0
+    for x in toys:
+        cost += toys[1]
+    return float(cost) 
 
 ###############################################################################
 # TODO: 5. (8 pts)
@@ -88,4 +102,13 @@
 #   
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
-###############################################################################
+##################################################################################
+def main():
+    list = []
+    while True:
+        tp = toy_price()
+        if tp == "end":
+            break
+        list.append(tp)
+
+main()
