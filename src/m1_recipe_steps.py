@@ -34,7 +34,7 @@ def get_step(num):
     return f"{num}) {step}"
 
 ###############################################################################
-# TODO: 2. (7 pts)
+# DONE: 2. (7 pts)
 #
 #   For this _TODO_, write a function called main() that will start everything
 #   off.
@@ -72,10 +72,10 @@ def main():
     loop = True
     while loop:
         step = get_step(x)
+        if "end" in step:
+            break
         x += 1
         instructions.append(step)
-        if get_step(x) == "end":
-            loop == False
     for y in instructions:
         print(y)
 

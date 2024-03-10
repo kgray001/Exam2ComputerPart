@@ -70,14 +70,14 @@ def toy_price(toy = get_toy(), price = get_price()):
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-def calculate_total_price(toys = toy_price()):
+def calculate_total_price(toys = toy_price()): 
     cost = 0
     for x in toys:
-        cost += toys[1]
+        cost += toys[1] / 2
     return float(cost) 
 
 ###############################################################################
-# TODO: 5. (8 pts)
+# DONE: 5. (8 pts)
 #
 #   For this _TODO_, write a function called main() that will start everything
 #   off. Make sure you use the functions that you defined above where you can.
@@ -107,8 +107,12 @@ def main():
     list = []
     while True:
         tp = toy_price()
-        if tp == "end":
+        if "end" in tp:
             break
         list.append(tp)
+    price = calculate_total_price(list)
+    for x in list:
+        print(x)
+    print(f"Total Cost: ${price}")
 
 main()
